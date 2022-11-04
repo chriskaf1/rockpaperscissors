@@ -1,7 +1,3 @@
-// create a function which plays a single round (compare the two choices and declare a winner)
-// keep score
-// loop above function 5 times, increasing the appropriate score
-// declare a winner
 
 // create a function that generates computer's choice
 function computerChoice() {
@@ -35,28 +31,61 @@ function playRound() {
 	// begin comparing choices and declare winner
     if (computerSelection === "rock") {
 		if (playerSelection === "paper") {
-			console.log(`Congratulations, you win! You had ${playerSelection} and computer had ${computerSelection}`);
+			console.log(`Congratulations, you win! You chose ${playerSelection} and computer had ${computerSelection}`);
 			return "player";
 		} else {
-			console.log(`You lose! You chose ${playerSelection} and computer has ${computerSelection}`);
+			console.log(`You lose! You chose ${playerSelection} and computer had ${computerSelection}`);
 			return "computer";
 		}
 	} else if (computerSelection === "paper") {
         if (playerSelection === "scissors") {
-			console.log(`Congratulations, you win! You had ${playerSelection} and computer had ${computerSelection}`);
+			console.log(`Congratulations, you win! You chose ${playerSelection} and computer had ${computerSelection}`);
 			return "player";
 		} else {
-			console.log(`You lose! You chose ${playerSelection} and computer has ${computerSelection}`);
+			console.log(`You lose! You chose ${playerSelection} and computer had ${computerSelection}`);
 			return "computer";
 		}
     } else {
         if (playerSelection === "rock") {
-			console.log(`Congratulations, you win! You had ${playerSelection} and computer had ${computerSelection}`);
+			console.log(`Congratulations, you win! You chose ${playerSelection} and computer had ${computerSelection}`);
 			return "player";
 		} else {
-			console.log(`You lose! You chose ${playerSelection} and computer has ${computerSelection}`);
+			console.log(`You lose! You chose ${playerSelection} and computer had ${computerSelection}`);
 			return "computer";
 		}
 
     }
-} // returns eiter "computer" or "player" for the winner
+} // returns either "computer" or "player" for the winner
+
+// keep score
+
+// function updateScore(winner) {
+//     if (winner == "computer") {
+//         computerScore += 1;
+//     } else {
+//         playerScore += 1;
+//     }
+// }
+
+function main() {
+    //do stuff
+    let computerScore = 0;
+    let playerScore = 0;
+    while (computerScore < 5 && playerScore < 5) {
+        let roundWinner;
+        roundWinner = playRound();
+        if (roundWinner == "computer") {
+            computerScore += 1;
+        } else {
+            playerScore += 1;
+        }
+        console.log(roundWinner);
+        console.log("comp score: " + computerScore);
+        console.log("player score: " + playerScore);
+    } // loop playRound function , increasing the appropriate score until someone has 5.
+    if (computerScore == 5) {
+        console.log("The computer won! Better luck next time!")
+    } else {
+        console.log("Congratulations! You won!")
+    } // declare a winner
+}
