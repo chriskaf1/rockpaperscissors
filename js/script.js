@@ -1,4 +1,3 @@
-
 // create a function that generates computer's choice
 function computerChoice() {
 	let choice = Math.ceil(Math.random() * 3);
@@ -29,7 +28,11 @@ function playRound() {
 	computerSelection = computerChoice();
 	playerSelection = playerChoice();
 	// begin comparing choices and declare winner
-    if (computerSelection === "rock") {
+	// if player and computer choices are the same, return "tie" and give no points
+	if (computerSelection === playerSelection) {
+        console.log(`It's a tie! Both you and the computer chose ${playerSelection}`);
+		return "tie";
+	} else if (computerSelection === "rock") {
 		if (playerSelection === "paper") {
 			console.log(`Congratulations, you win! You chose ${playerSelection} and computer had ${computerSelection}`);
 			return "player";
@@ -38,44 +41,45 @@ function playRound() {
 			return "computer";
 		}
 	} else if (computerSelection === "paper") {
-        if (playerSelection === "scissors") {
+		if (playerSelection === "scissors") {
 			console.log(`Congratulations, you win! You chose ${playerSelection} and computer had ${computerSelection}`);
 			return "player";
 		} else {
 			console.log(`You lose! You chose ${playerSelection} and computer had ${computerSelection}`);
 			return "computer";
 		}
-    } else {
-        if (playerSelection === "rock") {
+	} else {
+		if (playerSelection === "rock") {
 			console.log(`Congratulations, you win! You chose ${playerSelection} and computer had ${computerSelection}`);
 			return "player";
 		} else {
 			console.log(`You lose! You chose ${playerSelection} and computer had ${computerSelection}`);
 			return "computer";
 		}
-
-    }
+	}
 } // returns either "computer" or "player" for the winner
 
 function main() {
-    //initialize scores
-    let computerScore = 0;
-    let playerScore = 0;
-    while (computerScore < 5 && playerScore < 5) {
-        let roundWinner;
-        roundWinner = playRound();
-        if (roundWinner == "computer") {
-            computerScore += 1;
-        } else {
-            playerScore += 1;
-        }
-        console.log("Computer score: " + computerScore);
-        console.log("Player score: " + playerScore);
-        console.log("-----------------------------------");
-    } // loop playRound function , increasing the appropriate score until someone has 5.
-    if (computerScore == 5) {
-        console.log("The computer won! Better luck next time!")
-    } else {
-        console.log("Congratulations! You won!")
-    } // declare a winner
+	//initialize scores
+	let computerScore = 0;
+	let playerScore = 0;
+	while (computerScore < 5 && playerScore < 5) {
+		let roundWinner;
+		roundWinner = playRound();
+		if (roundWinner === "computer") {
+			computerScore += 1;
+		} else if (roundWinner === "player") {
+			playerScore += 1;
+		} else {
+			//do nothing to the scores
+		}
+		console.log("Computer score: " + computerScore);
+		console.log("Player score: " + playerScore);
+		console.log("-----------------------------------");
+	} // loop playRound function , increasing the appropriate score until someone has 5.
+	if (computerScore == 5) {
+		console.log("The computer won! Better luck next time!");
+	} else {
+		console.log("Congratulations! You won!");
+	} // declare a winner
 }
