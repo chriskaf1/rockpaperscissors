@@ -57,16 +57,6 @@ function playRound() {
     }
 } // returns either "computer" or "player" for the winner
 
-// keep score
-
-// function updateScore(winner) {
-//     if (winner == "computer") {
-//         computerScore += 1;
-//     } else {
-//         playerScore += 1;
-//     }
-// }
-
 function main() {
     //do stuff
     let computerScore = 0;
