@@ -58,7 +58,7 @@ function playRound() {
 } // returns either "computer" or "player" for the winner
 
 function main() {
-    //do stuff
+    //initialize scores
     let computerScore = 0;
     let playerScore = 0;
     while (computerScore < 5 && playerScore < 5) {
@@ -69,9 +69,9 @@ function main() {
         } else {
             playerScore += 1;
         }
-        console.log(roundWinner);
-        console.log("comp score: " + computerScore);
-        console.log("player score: " + playerScore);
+        console.log("Computer score: " + computerScore);
+        console.log("Player score: " + playerScore);
+        console.log("-----------------------------------");
     } // loop playRound function , increasing the appropriate score until someone has 5.
     if (computerScore == 5) {
         console.log("The computer won! Better luck next time!")
